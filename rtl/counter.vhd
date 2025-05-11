@@ -1,12 +1,20 @@
+--====================================--
+-- Narayan Shimanoe Lisboa - 14600141 --
+-- Hugo dos Reis -                    --  
+--====================================--
+
+-- importando bibliotecas.
+
 library IEEE;
 library IEEE.std_logic_1164.all;
 library IEEE.numeric_std.all;
+
 
 --- Declaração da da entidade counter ---
 
 entity counter is
     generic (
-        WIDTH: natural := 8 -- Tamanem em bits.
+        WIDTH: natural := 8 -- Tamanho em bits.
     );
 
     port (
