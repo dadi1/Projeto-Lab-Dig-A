@@ -43,6 +43,7 @@ architecture comportamental of sub_counter is
     -- processo de clock e mudança de estado.
 begin 
     process(clock, reset)
+    begin
         if reset = '1' then -- reset Assíncrono.
             EA <= IDLE;
         elsif (rising_edge(clock)) then
@@ -53,7 +54,7 @@ begin
     -- processo da Máquina de estados.
     process(EA, substitution)
     begin
-        PE <= EA -- Comportamento padrão: manter o estado atual.
+        PE <= EA; -- Comportamento padrão: manter o estado atual.
 
         if substitution = '1' then -- se houver substituição.
             case EA is
