@@ -29,12 +29,6 @@ begin
             when "00110111" => segment_out <= NOT"0000111"; -- 7
             when "00111000" => segment_out <= NOT"1111111"; -- 8
             when "00111001" => segment_out <= NOT"1101111"; -- 9
-            when "01000001" => segment_out <= NOT"1110111"; -- A
-            when "01000010" => segment_out <= NOT"1111100"; -- b
-            when "01000011" => segment_out <= NOT"0111001"; -- C
-            when "01000100" => segment_out <= NOT"1011110"; -- d
-            when "01000101" => segment_out <= NOT"1111001"; -- E
-            when "01000110" => segment_out <= NOT"1110001"; -- F
             when others => segment_out <= not"0000000";
         end case;
     end process;
