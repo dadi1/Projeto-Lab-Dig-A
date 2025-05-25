@@ -1,8 +1,7 @@
 --====================================--
--- Narayan Shimanoe Lisboa - 14600141 --
--- Hugo dos Reis - 12544308           --  
+-- Narayan Shimanoe Lisboa   14600141 --
+-- Hugo dos Reis             12544308 --
 --====================================--
-
 entity LineControlRegister is
     port(
         clk         : in  std_logic;

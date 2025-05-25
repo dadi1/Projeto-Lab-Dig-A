@@ -1,8 +1,7 @@
 --====================================--
--- Narayan Shimanoe Lisboa - 14600141 --
--- Hugo dos Reis - 12544308           --  
+-- Narayan Shimanoe Lisboa   14600141 --
+-- Hugo dos Reis             12544308 --
 --====================================--
-
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
