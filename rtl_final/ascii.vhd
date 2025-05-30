@@ -9,7 +9,7 @@ use IEEE.numeric_std.all;
 entity asciidisp is
     port(
         ascii_in    : in  std_logic_vector(7 downto 0);
-        subs_erro   : in std_logic;
+        subs6_erro  : in std_logic;
         segment_out : out std_logic_vector(6 downto 0)
     );
 end asciidisp;
@@ -18,7 +18,7 @@ architecture behaviour of asciidisp is
 begin
     process(ascii_in, subs_erro)
     begin
-        if subs_erro = '0' then
+        if subs6_erro = '0' then
             case ascii_in(7 downto 0) is
                 when "00110000" => segment_out <= NOT"0111111"; -- 0
                 when "00110001" => segment_out <= NOT"0000110"; -- 1

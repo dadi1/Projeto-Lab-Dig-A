@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity RTC is
-    Port (
+    port (
         clock         : in  std_logic;
         reset         : in  std_logic;
         serial_in     : in  std_logic;
