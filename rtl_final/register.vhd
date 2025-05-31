@@ -24,11 +24,11 @@ begin
     process(clock, reset)
     begin
         if reset = '1' then
-            reg <= (others => '0');
+            register <= (others => '0');
         elsif rising_edge(clock) then
-            reg <= D;
+            register <= D;
         end if;
     end process;
 
-    Q <= reg;
+    Q <= register;
 end Behavioral;

@@ -24,7 +24,7 @@ entity exp06 is
         sub_3        : out std_logic;
         sub_4        : out std_logic;
         sub_5        : out std_logic;
-        erro         : out std_logic
+        sub_erro     : out std_logic
     );
 end exp06;
 

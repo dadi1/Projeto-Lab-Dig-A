@@ -31,7 +31,7 @@ architecture Behavioral of RTC is
 
     signal parity_calc : std_logic := '0';
 
-    -- Buffer de 20 registradores
+    -- Buffer de 2 registradores
     type reg_array is array(0 to 1) of std_logic_vector(7 downto 0);
     signal mem : reg_array := (others => (others => '0'));
     signal write_index : integer range 0 to 1 := 0;

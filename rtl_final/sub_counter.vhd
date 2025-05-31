@@ -38,7 +38,7 @@ architecture comportamental of sub_counter is
 
     -- implemntação do estados.
     type estado_t is (IDLE, SUB_1, SUB_2, SUB_3, SUB_4, SUB_5, ERRO);
-    signal EA, PE : estado_t;
+    signal EA, PE : estado_t := IDLE;
 
     -- processo de clock e mudança de estado.
 begin 
@@ -97,7 +97,7 @@ begin
         '0';
     subs_3 <= '1' when EA = SUB_3 or EA = SUB_4 or EA = SUB_5 or EA = ERRO else
         '0';
-    subs_4 <= '1' when EA = SUB_4 or EA = SUB_5 or EA =ERRO else
+    subs_4 <= '1' when EA = SUB_4 or EA = SUB_5 or EA = ERRO else
         '0';
     subs_5 <= '1' when EA = SUB_5 or EA = ERRO else
         '0';

@@ -16,7 +16,7 @@ end asciidisp;
 
 architecture behaviour of asciidisp is 
 begin
-    process(ascii_in, subs_erro)
+    process(ascii_in, subs6_erro)
     begin
         if subs6_erro = '0' then
             case ascii_in(7 downto 0) is
@@ -32,6 +32,11 @@ begin
                 when "00111001" => segment_out <= NOT"1101111"; -- 9
                 when others => segment_out <= not"0000000";
             end case;
+
+        else
+            segment_out <= (others => '1'); -- ou qualquer outro código para “desligado”
+            
         end if;
+
     end process;
 end behaviour;

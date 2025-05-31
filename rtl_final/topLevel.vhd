@@ -21,12 +21,12 @@ entity toplevel is
         display1      : out std_logic_vector(6 downto 0);
 
         -- saídas do contador de substituição.
-        sub_1_out     : out std_logic_vector(6 downto 0);
-        sub_2_out     : out std_logic_vector(6 downto 0);
-        sub_3_out     : out std_logic_vector(6 downto 0);
-        sub_4_out     : out std_logic_vector(6 downto 0);
-        sub_5_out     : out std_logic_vector(6 downto 0);
-        sub_erro_out  : out std_logic_vector(6 downto 0)
+        sub_1_out     : out std_logic;
+        sub_2_out     : out std_logic;
+        sub_3_out     : out std_logic;
+        sub_4_out     : out std_logic;
+        sub_5_out     : out std_logic;
+        sub_erro_out  : out std_logic
     );
 end toplevel;
 
@@ -91,7 +91,7 @@ architecture projeto of toplevel is
             subs_5        : out std_logic; 
             subs_erro     : out std_logic 
         );
-    end component
+    end component;
 
     -- Componente ascii
     component asciidisp is
@@ -105,8 +105,8 @@ architecture projeto of toplevel is
     -- Declaração de sinais internos:
 
     --sinais internos de comunicação.
-    signal internal_clock  : std_logic
-    signal baud_clock_int  : std_logic
+    signal internal_clock  : std_logic;
+    signal baud_clock_int  : std_logic;
     signal pll_locked_int  : std_logic;
 
     -- sinais internos de erro de controle.
@@ -124,10 +124,10 @@ begin
 
     clocker: ip_pll
         port map (
-                ref_clk  => clock,
+                refclk  => clock,
                 rst      => reset,
                 outclk_0 => internal_clock,
-                locked   => pll_locked
+                locked   => pll_locked_int
         );
 
     baud_gen: baudRateGenerator
@@ -140,13 +140,13 @@ begin
 
     u_RTC : RTC 
         port map (
-            clock       => baud_clock_int,
-            reset       => reset,
-            serial_in   => serial_in,
-            data_valid  => internal_data_valid,
-            parity_erro => internal_parity_error,
-            reg0        => reg0_int,
-            reg1        => reg1_int
+            clock        => baud_clock_int,
+            reset        => reset,
+            serial_in    => serial_in,
+            data_valid   => internal_data_valid,
+            parity_error => internal_parity_error,
+            reg0         => reg0_int,
+            reg1         => reg1_int
         );
 
     registrador0 : reg
@@ -155,7 +155,7 @@ begin
             reset => reset,
             D     => reg0_int,
             Q     => ascii0_int
-        )
+        );
 
     registrador1 : reg
         port map (
@@ -178,16 +178,16 @@ begin
             subs_erro    => sub_erro_int
         );
     
-    sub_erro_out => sub_erro_int;
+    sub_erro_out <= sub_erro_int;
 
-    display0 : asciidisp
+    display0_inst : asciidisp
         port map (
             ascii_in => ascii0_int,
             subs6_erro => sub_erro_int,
             segment_out => display0
         );
     
-    display1 : asciidisp
+    display1_inst : asciidisp
         port map (
             ascii_in => ascii1_int,
             subs6_erro => sub_erro_int,

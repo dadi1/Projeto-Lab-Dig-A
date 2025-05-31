@@ -26,7 +26,7 @@ begin
 
     process(clock, reset)
     begin
-        if rst = '1' then
+        if reset = '1' then
             counter <= (others => '0');
             clock_out <= '1';
         elsif rising_edge(clock) then
