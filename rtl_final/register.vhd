@@ -19,16 +19,16 @@ entity reg is
 end reg;
 
 architecture Behavioral of reg is
-    signal register : std_logic_vector(7 downto 0);
+    signal reg : std_logic_vector(7 downto 0);
 begin
     process(clock, reset)
     begin
         if reset = '1' then
-            register <= (others => '0');
+            reg <= (others => '0');
         elsif rising_edge(clock) then
-            register <= D;
+            reg <= D;
         end if;
     end process;
 
-    Q <= register;
+    Q <= reg;
 end Behavioral;
