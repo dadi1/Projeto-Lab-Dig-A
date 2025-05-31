@@ -115,10 +115,10 @@ architecture projeto of toplevel is
     signal internal_parity_error : std_logic;
 
     -- sinais internos para os registradores
-    reg0_int, reg1_int : std_logic_vector(7 downto 0);
+    signal reg0_int, reg1_int : std_logic_vector(7 downto 0);
 
     -- sinais internos para os ascii.
-    ascii0_int, ascii1_int : std_logic_vector(7 downto 0);
+    signal ascii0_int, ascii1_int : std_logic_vector(7 downto 0);
 
 begin
 
