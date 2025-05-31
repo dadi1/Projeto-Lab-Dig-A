@@ -1,3 +1,10 @@
+--====================================--
+-- Narayan Shimanoe Lisboa   14600141 --
+-- Hugo dos Reis             12544308 --
+--====================================--
+
+-- importando bibliotecas.
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
