@@ -37,7 +37,7 @@ end sub_counter; -- Fim da declaração da entidade.
 architecture comportamental of sub_counter is
 
     -- implemntação do estados.
-    type estado_t is (IDLE, SUB_1, SUB_2, SUB_3, SUB_4, SUB_5, ERRO);
+    type estado_t is (IDLE, SUB_1, SUB_2, SUB_3, SUB_4, SUB_5, ERRO, SUB1_INT, SUB2_INT, SUB3_INT, SUB4_INT, SUB5_INT);
     signal EA, PE : estado_t := IDLE;
 
     -- processo de clock e mudança de estado.
@@ -62,25 +62,35 @@ begin
                 -- primeira substituição.
                 when IDLE =>
                     PE <= SUB_1;
+                when SUB_1 =>
+                    PE <= SUB1_INT;
 
                 -- segunda substituição.
-                when SUB_1 =>
+                when SUB1_INT =>
                     PE <= SUB_2;
+                when SUB_2 =>
+                    PE <= SUB2_INT;
                 
                 -- terceira substituição.
-                when SUB_2 =>
+                when SUB2_INT =>
                     PE <= SUB_3;
+                when SUB_3 =>
+                    PE <= SUB3_INT;
 
                 -- quarta substituição.
-                when SUB_3 =>
+                when SUB3_INT =>
                     PE <= SUB_4;
+                when SUB_4 =>
+                    PE <= SUB4_INT;
 
                 -- quinta substituição.
-                when SUB_4 =>
+                when SUB4_INT =>
                     PE <= SUB_5;
+                when SUB_5 =>
+                    PE <= SUB5_INT;
 
                 -- erro (mais uma substituição depois de 5)
-                when SUB_5 =>
+                when SUB5_INT =>
                     PE <= ERRO;
 
                 when ERRO =>
